@@ -7,8 +7,13 @@
     </div>
     <ItemList :planets="planets" />
     <div class="load-more__container">
-      <button class="load-more__btn" v-if="haveNextPage" @click="loadNextPage">
-        Load Next Page
+      <button
+        :disabled="isLoadingMorePages"
+        class="load-more__btn"
+        v-if="haveNextPage"
+        @click="loadNextPage"
+      >
+        {{ !isLoadingMorePages ? "Load Next Page" : "Loading..." }}
       </button>
     </div>
   </div>
@@ -26,14 +31,20 @@ import HeaderNav from "@/components/HeaderNav.vue";
 const TIME_CACHE = 1000 * 60 * 60 * 24;
 let planets = ref<Array<Planet>>([]);
 let haveNextPage = ref<boolean>(false);
+let loadMore = ref<boolean>(false);
 let page = ref<number>(1);
 
 const isLoading = computed(() => {
   return planets.value.length === 0;
 });
 
+const isLoadingMorePages = computed(() => {
+  return planets.value.length > 0 && loadMore.value;
+});
+
 const loadNextPage = async () => {
   try {
+    loadMore.value = true;
     const axiosInstance = apiSwapi();
     const { results, next } = await axiosInstance.get(
       "/planets",
@@ -50,6 +61,7 @@ const loadNextPage = async () => {
       };
     });
     planets.value = planets.value.concat(planetsWithImages);
+    loadMore.value = false;
     haveNextPage.value = !!next;
     page.value += 1;
   } catch (error) {
