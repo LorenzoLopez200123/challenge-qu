@@ -1,8 +1,15 @@
 # Answers
 
+I understand that these questions may be more focused on a very basic project where you have to separate more functions or classes to control closures and that they do not generate side effects, the project that has generated has the implementation of a library with many more configurations, Then they are more controlled, they will also answer the questions in the current context, but if you need to go more depth on this topic I have no problem that we make a live coding to review these questions.
+
 1. Where in the code is there a closure? Justify
 
+As I will not declare variables or functions at the $ root level of the application and when using VUE 3 composition, the scopes of the component level are maintained at the component level, thus having unwanted global variables that generate side effects.
+
 2. Could you point out any function side-effects? Are they expected? Can they be avoided?
+
+The functions that are responsible for obtaining the information do not completely control the Response Structure that they can return and this can generate some SIDE-EFFECT, it can be tested by sending different parameters to obtain the errors and control them.
+A cache instance is added to avoid inecense requests, I am pending to implement the promise cancel to cancel the previous or slope request if the component is disassembled or updated.
 
 # Vue 3 + TypeScript + Vite
 
@@ -10,15 +17,11 @@ Using node v17.1.0 (npm v8.1.2)
 
 ### init development server
 
-```
-yarn run dev
-```
+`yarn run dev`
 
 ### build proyect
 
-```
-yarn run build
-```
+`yarn run build`
 
 This proyect use:
 
