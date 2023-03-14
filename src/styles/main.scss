@@ -1,26 +1,27 @@
-@import 'variables';
+@import "variables";
 
 // reset html native css and add support
 
-@import 'normalize';
+@import "normalize";
 
 // screens components imports
 
 // components imports
 
-@import './components/layout';
-@import './components/header';
-@import './components/footer';
-@import './components/searchBar';
-@import './components/cardItem';
-@import './components/itemList';
-@import './components/container';
-@import './components/navigationHeaderInfo';
+@import "./components/layout";
+@import "./components/header";
+@import "./components/footer";
+@import "./components/searchBar";
+@import "./components/cardItem";
+@import "./components/itemList";
+@import "./components/container";
+@import "./components/navigationHeaderInfo";
 
 // global styles
 body {
   margin: 0;
-  font-family: 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

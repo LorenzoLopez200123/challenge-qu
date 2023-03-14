@@ -1,22 +1,22 @@
-import { createRouter, createWebHistory } from 'vue-router';
-const Home = require('./pages/Home.vue').default;
-const NotFound = require('./pages/NotFound.vue').default;
+import { createRouter, createWebHistory } from "vue-router";
+const Home = require("./pages/Home.vue").default;
+const NotFound = require("./pages/NotFound.vue").default;
 
 const routes = [
   {
-    path: '/:pathMatch(.*)*',
-    redirect: '/404',
+    path: "/:pathMatch(.*)*",
+    redirect: "/404",
   },
   {
-    path: '/',
+    path: "/",
     component: Home,
   },
   {
-    path: '/home',
+    path: "/home",
     component: Home,
   },
   {
-    path: '/404',
+    path: "/404",
     component: NotFound,
   },
 ];
