@@ -1,29 +1,41 @@
-@import "variables";
+@import 'variables';
 
 // reset html native css and add support
 
-@import "normalize";
+@import 'normalize';
 
 // screens components imports
 
 // components imports
 
-@import "./components/layout";
-@import "./components/header";
-@import "./components/footer";
-@import "./components/searchBar";
-@import "./components/cardItem";
-@import "./components/itemList";
-@import "./components/container";
-@import "./components/navigationHeaderInfo";
+@import './components/cardItem';
+@import './components/itemList';
+@import './components/loadMore';
 
 // global styles
 body {
   margin: 0;
-  font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.bg {
+  background-image: url('/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+
+  &::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
 }
 
 :root {
