@@ -3,7 +3,7 @@
   <router-link to="/home">Go home</router-link>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: `'404'`,
 };
