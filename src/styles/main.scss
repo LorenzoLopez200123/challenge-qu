@@ -1,34 +1,35 @@
-@import 'variables';
+@import "variables";
 
 // reset html native css and add support
 
-@import 'normalize';
+@import "normalize";
 
 // screens components imports
 
 // components imports
 
-@import './components/cardItem';
-@import './components/itemList';
-@import './components/loadMore';
+@import "./components/cardItem";
+@import "./components/itemList";
+@import "./components/loadMore";
 
 // global styles
 body {
   margin: 0;
-  font-family: 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .bg {
-  background-image: url('/background.jpg');
+  background-image: url("/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
 
   &::after {
-    content: '';
+    content: "";
     position: fixed;
     top: 0;
     left: 0;

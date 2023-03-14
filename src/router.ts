@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "@/pages/HomeView.vue";
-import NotFound from "@/pages/404.vue"
+import NotFound from "@/pages/404.vue";
 
 const routes = [
   {

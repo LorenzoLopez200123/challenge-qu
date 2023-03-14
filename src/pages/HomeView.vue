@@ -3,18 +3,20 @@
     <HeaderNav />
     <ItemList :planets="planets" />
     <div class="load-more__container">
-      <button class="load-more__btn" v-if="haveNextPage" @click="loadNextPage">Load Next Page</button>
+      <button class="load-more__btn" v-if="haveNextPage" @click="loadNextPage">
+        Load Next Page
+      </button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import ItemList from '@/components/ItemList.vue';
-import apiSwapi from '@/services/apiSwapi';
-import apiUnsplash from '@/services/apiUnplash';
-import { Planet } from '@/types/Planet';
-import { onMounted, ref } from 'vue';
-import HeaderNav from '@/components/HeaderNav.vue';
+import ItemList from "@/components/ItemList.vue";
+import apiSwapi from "@/services/apiSwapi";
+import apiUnsplash from "@/services/apiUnplash";
+import { Planet } from "@/types/Planet";
+import { onMounted, ref } from "vue";
+import HeaderNav from "@/components/HeaderNav.vue";
 
 let planets = ref<Array<Planet>>([]);
 let haveNextPage = ref<boolean>(false);
@@ -23,7 +25,7 @@ let page = ref<number>(1);
 const loadNextPage = async () => {
   const axiosInstance = apiSwapi();
   const { results, next } = await axiosInstance.get(
-    '/planets',
+    "/planets",
     {
       cacheTime: 1000 * 60 * 60 * 24,
     },
@@ -43,14 +45,16 @@ const loadNextPage = async () => {
 
 const getImages = async () => {
   const axiosIntancesUnplash = apiUnsplash();
-  const { results } = await axiosIntancesUnplash.get(`search/photos?page=${page.value}&query=planet-star-wars`);
+  const { results } = await axiosIntancesUnplash.get(
+    `search/photos?page=${page.value}&query=planet-star-wars`
+  );
   if (!results) return [];
   return results!.map((result: any) => result.urls.small);
 };
 
 onMounted(async () => {
   const axiosInstance = apiSwapi();
-  const { results, next } = await axiosInstance.get('/planets', {
+  const { results, next } = await axiosInstance.get("/planets", {
     cacheTime: 1000 * 60 * 60 * 24,
   });
   const images = await getImages();

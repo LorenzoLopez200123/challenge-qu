@@ -11,25 +11,23 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue';
+import { defineProps } from "vue";
 
 defineProps({
   name: {
     type: String,
-    default: 'unknown',
+    default: "unknown",
   },
-  image : {
+  image: {
     type: String,
-    default: 'https://via.placeholder.com/150',
+    default: "https://via.placeholder.com/150",
   },
   description: {
     type: String,
-    default: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit eius ad ipsam, fugiat quidem perspiciatis inventore optio in deserunt, itaque voluptatem nisi unde quam tempora expedita est. Atque, voluptatum maxime!',
+    default:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit eius ad ipsam, fugiat quidem perspiciatis inventore optio in deserunt, itaque voluptatem nisi unde quam tempora expedita est. Atque, voluptatum maxime!",
   },
 });
-
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>
