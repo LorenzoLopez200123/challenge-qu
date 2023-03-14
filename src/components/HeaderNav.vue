@@ -1,6 +1,6 @@
 <template>
   <div class="header__container">
-    <h3>Star Wars Planets</h3>
+    <img src="/logo.png" alt="logo" width="140" height="64" />
   </div>
 </template>
 <script setup lang="ts"></script>
@@ -9,7 +9,10 @@
   display: flex;
   position: relative;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background-color: #121212;
   z-index: 3;
+  padding-block: 0.5rem;
 }
 </style>
