@@ -14,7 +14,7 @@
 import ItemList from "@/components/ItemList.vue";
 import apiSwapi from "@/services/apiSwapi";
 import apiUnsplash from "@/services/apiUnplash";
-import { Planet } from "@/types/Planet";
+import { ImageUnsplash, Planet } from "@/types/Planet";
 import { onMounted, ref } from "vue";
 import HeaderNav from "@/components/HeaderNav.vue";
 
@@ -45,18 +45,20 @@ const loadNextPage = async () => {
 
 const getImages = async () => {
   const axiosIntancesUnplash = apiUnsplash();
-  const { results } = await axiosIntancesUnplash.get(
-    `search/photos?page=${page.value}&query=planet-star-wars`
-  );
+  const { results }: { results: Array<ImageUnsplash> } =
+    await axiosIntancesUnplash.get(
+      `search/photos?page=${page.value}&query=planet-star-wars`
+    );
   if (!results) return [];
-  return results!.map((result: any) => result.urls.small);
+  return results!.map((image: ImageUnsplash) => image.urls.small);
 };
 
 onMounted(async () => {
   const axiosInstance = apiSwapi();
-  const { results, next } = await axiosInstance.get("/planets", {
-    cacheTime: 1000 * 60 * 60 * 24,
-  });
+  const { results, next }: { results: Array<Planet>; next: string } =
+    await axiosInstance.get("/planets", {
+      cacheTime: 1000 * 60 * 60 * 24,
+    });
   const images = await getImages();
   planets.value = results!.map((planet: Planet, index: number) => {
     return {
