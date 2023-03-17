@@ -6,21 +6,21 @@ In the apiSwapi function of service/apiswapi.ts, there is a closure created by t
 
 Answer 2: Yes, there are several functions that have side-effects.
 
-    The loadNextPage function in pages/home.ts updates the value of the planets, haveNextPage, loadMore, and page variables, all of which are defined outside the function.
+The loadNextPage function in pages/home.ts updates the value of the planets, haveNextPage, loadMore, and page variables, all of which are defined outside the function.
 
-    The onMounted function in pages/home.ts makes an API call to the Swapi API and then updates the value of the planets, haveNextPage, and page variables.
+The onMounted function in pages/home.ts makes an API call to the Swapi API and then updates the value of the planets, haveNextPage, and page variables.
 
-    The getImages function in pages/home.ts makes an API call to the Unsplash API and returns the response data.
+The getImages function in pages/home.ts makes an API call to the Unsplash API and returns the response data.
 
 To control the side effects in response code 2, several strategies could be applied:
 
-    Use a state management library such as Vuex or Redux to maintain a global state in the application and have greater control over changes to the data.
+Use a state management library such as Vuex or Redux to maintain a global state in the application and have greater control over changes to the data.
 
-    Apply the "command query separation" (CQS) pattern to functions, that is, separate functions that perform actions (side effects) from those that only return data, so that side effects are easier to identify and to control.
+Apply the "command query separation" (CQS) pattern to functions, that is, separate functions that perform actions (side effects) from those that only return data, so that side effects are easier to identify and to control.
 
-    Use the Vue lifecycle hooks (such as onMounted, onUpdated, onBeforeUnmount, etc.) to execute the operations that generate side effects at the right time and clean them up when necessary.
+Use the Vue lifecycle hooks (such as onMounted, onUpdated, onBeforeUnmount, etc.) to execute the operations that generate side effects at the right time and clean them up when necessary.
 
-    Apply the single responsibility principle (SRP) to functions, so that each function has a single clearly defined responsibility and avoids one function doing too many things at once.
+Apply the single responsibility principle (SRP) to functions, so that each function has a single clearly defined responsibility and avoids one function doing too many things at once.
 
 # Vue 3 + TypeScript + Vite
 
@@ -36,25 +36,25 @@ Using node v17.1.0 (npm v8.1.2)
 
 This proyect use:
 
-    Build Tool of Front-End offered a quick and efficient development experience thanks to its development server that provides instant compilation and a fast hot recharge.
+Build Tool of Front-End offered a quick and efficient development experience thanks to its development server that provides instant compilation and a fast hot recharge.
 
-    VUE 3: Progressive framework to build user interfaces that offers significant improvements in the performance and ergonomics of the API.
+VUE 3: Progressive framework to build user interfaces that offers significant improvements in the performance and ergonomics of the API.
 
-    Composition API: New way of defining the logic in Vue 3 that allows a modular and scalable organization of application logic.
+Composition API: New way of defining the logic in Vue 3 that allows a modular and scalable organization of application logic.
 
-    TypeScript: programming language that extends Javascript by adding a static type system to detect errors of type of compilation.
+TypeScript: programming language that extends Javascript by adding a static type system to detect errors of type of compilation.
 
-    Axios: HTTP customer based on promises to consume APIs from a front-end application.
+Axios: HTTP customer based on promises to consume APIs from a front-end application.
 
-    ESLINT: Code analysis tool to detect and prevent errors in the source code and guarantee the consistency and quality of the code in a developer equipment.
+ESLINT: Code analysis tool to detect and prevent errors in the source code and guarantee the consistency and quality of the code in a developer equipment.
 
-    Prettier: Code formatting tool to maintain a style consisting of the source code and automate the formatting of the code in a developer equipment.
+Prettier: Code formatting tool to maintain a style consisting of the source code and automate the formatting of the code in a developer equipment.
 
-    Husky: tool to configure git hooks (Hooks) that are automatically executed in certain events, as before making an ADS, to guarantee compliance with rules in a developer team.
+Husky: tool to configure git hooks (Hooks) that are automatically executed in certain events, as before making an ADS, to guarantee compliance with rules in a developer team.
 
-    Relative imports: way of importing modules in the source code using a relative route instead of an absolute route to make the code more portable and easy to maintain.
+Relative imports: way of importing modules in the source code using a relative route instead of an absolute route to make the code more portable and easy to maintain.
 
-    SCSS: CSS preprocessor that allows you to use variables, functions and mixers to generate CSS code and reduce the amount of repetitive code in an application and make the most maintainable CSS code.
+SCSS: CSS preprocessor that allows you to use variables, functions and mixers to generate CSS code and reduce the amount of repetitive code in an application and make the most maintainable CSS code.
 
 ## Recommended IDE Setup
 
