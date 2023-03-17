@@ -1,15 +1,26 @@
 # Answers
 
-I understand that these questions may be more focused on a very basic project where you have to separate more functions or classes to control closures and that they do not generate side effects, the project that has generated has the implementation of a library with many more configurations, Then they are more controlled, they will also answer the questions in the current context, but if you need to go more depth on this topic I have no problem that we make a live coding to review these questions.
+Answer 1: 
 
-1. Where in the code is there a closure? Justify
+In the apiSwapi function of service/apiswapi.ts, there is a closure created by the get function. The get function returns a function that captures the cache variable from the outer scope of apiSwapi. This variable is then used to cache the results of the API calls.
 
-As I will not declare variables or functions at the $ root level of the application and when using VUE 3 composition, the scopes of the component level are maintained at the component level, thus having unwanted global variables that generate side effects.
+Answer 2: Yes, there are several functions that have side-effects.
 
-2. Could you point out any function side-effects? Are they expected? Can they be avoided?
+    The loadNextPage function in pages/home.ts updates the value of the planets, haveNextPage, loadMore, and page variables, all of which are defined outside the function.
 
-The functions that are responsible for obtaining the information do not completely control the Response Structure that they can return and this can generate some SIDE-EFFECT, it can be tested by sending different parameters to obtain the errors and control them.
-A cache instance is added to avoid inecense requests, I am pending to implement the promise cancel to cancel the previous or slope request if the component is disassembled or updated.
+    The onMounted function in pages/home.ts makes an API call to the Swapi API and then updates the value of the planets, haveNextPage, and page variables.
+
+    The getImages function in pages/home.ts makes an API call to the Unsplash API and returns the response data.
+
+To control the side effects in response code 2, several strategies could be applied:
+
+    Use a state management library such as Vuex or Redux to maintain a global state in the application and have greater control over changes to the data.
+
+    Apply the "command query separation" (CQS) pattern to functions, that is, separate functions that perform actions (side effects) from those that only return data, so that side effects are easier to identify and to control.
+
+    Use the Vue lifecycle hooks (such as onMounted, onUpdated, onBeforeUnmount, etc.) to execute the operations that generate side effects at the right time and clean them up when necessary.
+
+    Apply the single responsibility principle (SRP) to functions, so that each function has a single clearly defined responsibility and avoids one function doing too many things at once.
 
 # Vue 3 + TypeScript + Vite
 
