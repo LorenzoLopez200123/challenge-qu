@@ -1,10 +1,12 @@
 # Answers
 
-Answer 1: 
+Question 1: Where in the code is there a closure? Justify
 
 In the apiSwapi function of service/apiswapi.ts, there is a closure created by the get function. The get function returns a function that captures the cache variable from the outer scope of apiSwapi. This variable is then used to cache the results of the API calls.
 
-Answer 2: Yes, there are several functions that have side-effects.
+Question 2: Could you point out any function side-effects? Are they expected? Can they be avoided?:
+
+Yes, there are several functions that have side-effects.
 
 The loadNextPage function in pages/home.ts updates the value of the planets, haveNextPage, loadMore, and page variables, all of which are defined outside the function.
 
